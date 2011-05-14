@@ -1,4 +1,8 @@
-# -*- encoding: utf-8 -*-
+# Copyright (c) 2011 Michael Dvorkin
+#
+# Market Beat is freely distributable under the terms of MIT license.
+# See LICENSE file or http://www.opensource.org/licenses/mit-license.php
+#------------------------------------------------------------------------------
 $:.push File.expand_path("../lib", __FILE__)
 require "rake"
 require "rspec/core/rake_task"
