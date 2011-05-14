@@ -5,13 +5,15 @@
 #------------------------------------------------------------------------------
 $:.push File.expand_path("../lib", __FILE__)
 require "rake"
-require "rspec/core/rake_task"
 
 task :default => :spec
 
-RSpec::Core::RakeTask.new(:spec) do |s|
-  s.pattern = 'spec/**/*_spec.rb'
-  s.rspec_opts = ['--color']
+task :spec do
+  require "rspec/core/rake_task"
+  RSpec::Core::RakeTask.new(:spec) do |s|
+    s.pattern = 'spec/**/*_spec.rb'
+    s.rspec_opts = ['--color']
+  end
 end
 
 Gem::Specification.new do |s|
@@ -33,4 +35,3 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec", ">= 2.6.0"
 end
-
