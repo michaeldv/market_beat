@@ -170,8 +170,8 @@ describe "MarketBeat::Yahoo" do
   end
 
   it 'ebitda' do
-     apple(:ebitda).should == '26.726B'
-    google(:ebitda).should == '12.155B'
+     apple(:ebitda).should == '26726000000' # '26.726B'
+    google(:ebitda).should == '12155000000' # '12.155B'
   end
 
   it 'eps_estimate_current_year' do
@@ -200,8 +200,8 @@ describe "MarketBeat::Yahoo" do
   end
 
   it 'float_shares' do
-     apple(:float_shares).should == '   918,706,000'
-    google(:float_shares).should == '   251,385,000'
+     apple(:float_shares).should == '918706000'
+    google(:float_shares).should == '251385000'
   end
 
   it 'high_52_week' do
@@ -260,7 +260,7 @@ describe "MarketBeat::Yahoo" do
   end
 
   it 'last_trade_size' do
-     apple(:last_trade_size).should == '3,570'
+     apple(:last_trade_size).should == '3570'
     google(:last_trade_size).should == '980'
   end
 
@@ -290,8 +290,8 @@ describe "MarketBeat::Yahoo" do
   end
 
   it 'market_capitalization' do
-     apple(:market_capitalization).should == '314.9B'
-    google(:market_capitalization).should == '170.3B'
+     apple(:market_capitalization).should == '314900000000' # '314.9B'
+    google(:market_capitalization).should == '170300000000' # '170.3B'
   end
 
   it 'more_info' do

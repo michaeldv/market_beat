@@ -9,7 +9,8 @@ require 'yaml'
 
 module MarketBeat
   class Yahoo
-    URL = 'http://download.finance.yahoo.com/d/quotes.csv?s='
+    URL = 'http://download.finance.yahoo.com/d/quotes.csv?s='.freeze
+    L2N = { 'M' => 1_000_000, 'B' => 1_000_000_000 }.freeze
 
     class << self
       metrics = YAML.load_file(File.dirname(__FILE__) + '/yahoo.yml')
@@ -27,13 +28,23 @@ module MarketBeat
       end
 
       def sanitize(raw)
-        data = raw.gsub(/\r|\n|"|<\/?b>|&nbsp;/, '')
+        data = raw.strip.gsub(/\r|\n|"|<\/?b>|&nbsp;/, '')
         min, max = data.split(/\s+\-\s+/)
         min && max ? [scrub(min), scrub(max)] : scrub(min)
       end
 
       def scrub(data)
-        data =~ /^(?:\s*|N\/A|\-)$/ ? nil : data
+        # Convert empty string, '-' or 'N/A' to nil
+        return nil if data =~ /^(?:\s*|N\/A|\-)$/
+        # Normalize numbers:
+        #   '1,234.56'  => '1234.56'
+        #   '1,234.56M' => '1234560000'
+        #   '1,234.56B' => '1234560000000'
+        if data =~ /^[\.\d,]+[MB]*$/
+          data.gsub!(',', '')
+          data = (data[0..-2].to_f * L2N[data[-1,1]]).to_i.to_s if L2N[data[-1,1]]
+        end
+        data
       end
     end
   end
