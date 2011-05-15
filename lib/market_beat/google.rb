@@ -16,7 +16,7 @@ module MarketBeat
     class << self
       metrics = YAML.load_file(File.dirname(__FILE__) + '/google.yml')
       metrics.each do |key, value|
-        if value !~ /real_time$/
+        if value.to_s !~ /real_time$/
           define_method value do |ticker|
             from_xml fetch(ticker), key
           end
@@ -36,7 +36,8 @@ module MarketBeat
 
       def from_xml(xml, metric)
         doc = REXML::Document.new(xml)
-        doc.elements["//finance/#{metric}"].attributes['data']
+        data = doc.elements["//finance/#{metric}"].attributes['data']
+        data.empty? ? nil : data
       end
 
       def from_json(json, metric)

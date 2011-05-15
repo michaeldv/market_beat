@@ -43,6 +43,6 @@
 :l: :last_trade_real_time
 :lt: :last_trade_datetime_real_time
 :ltt: :last_trade_time_real_time
-:ccol: :color_code
+:ccol: :color_code_real_time
 # :l_cur: :?
 # :s: :?
