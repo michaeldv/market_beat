@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<xml_api_reply version="1">
+	<finance module_id="0" tab_id="0" mobile_row="0" mobile_zipped="1" row="0" section="0" >
+		<symbol data="IBM" />
+		<pretty_symbol data="IBM" />
+		<symbol_lookup_url data="/finance?client=ig&amp;q=IBM" />
+		<company data="International Business Machines Corp." />
+		<exchange data="NYSE" />
+		<exchange_timezone data="ET" />
+		<exchange_utc_offset data="+05:00" />
+		<exchange_closing data="960" />
+		<divisor data="2" />
+		<currency data="USD" />
+		<last data="169.92" />
+		<high data="172.15" />
+		<low data="169.44" />
+		<volume data="5168995" />
+		<avg_volume data="5084" />
+		<market_cap data="207223.55" />
+		<open data="171.70" />
+		<y_close data="172.24" />
+		<change data="-2.32" />
+		<perc_change data="-1.35" />
+		<delay data="0" />
+		<trade_timestamp data="May 13, 2011" />
+		<trade_date_utc data="20110513" />
+		<trade_time_utc data="200138" />
+		<current_date_utc data="20110515" />
+		<current_time_utc data="001456" />
+		<symbol_url data="/finance?client=ig&amp;q=IBM" />
+		<chart_url data="/finance/chart?q=NYSE:IBM&amp;tlf=12" />
+		<disclaimer_url data="/help/stock_disclaimer.html" />
+		<ecn_url data="" />
+		<isld_last data="" />
+		<isld_trade_date_utc data="" />
+		<isld_trade_time_utc data="" />
+		<brut_last data="" />
+		<brut_trade_date_utc data="" />
+		<brut_trade_time_utc data="" />
+		<daylight_savings data="true" />
+	</finance>
+</xml_api_reply>

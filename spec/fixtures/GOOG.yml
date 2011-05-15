@@ -80,7 +80,7 @@
 :low_52_week: |
   433.63
 
-:last_trade_price_only: |
+:last_trade: |
   529.55
 
 :float_shares: "   251,385,000\r\n"
@@ -159,7 +159,7 @@
 :eps_estimate_current_year: |
   33.94
 
-:change_in_percent: |
+:percent_change: |
   "-1.03%"
 
 :bid_size: |

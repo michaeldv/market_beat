@@ -43,7 +43,7 @@
 :k4: :change_from_52_week_high
 :k5: :percent_change_from_52_week_high
 :l: :last_trade_with_time
-:l1: :last_trade_price_only
+:l1: :last_trade
 :l2: :high_limit
 :l3: :low_limit
 :m: :days_range
@@ -59,7 +59,7 @@
 :o: :open
 :p: :previous_close
 :p1: :price_paid
-:p2: :change_in_percent
+:p2: :percent_change
 :p5: :price_to_sales
 :p6: :price_to_book
 :q: :ex_dividend_date

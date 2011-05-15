@@ -1,0 +1,48 @@
+---
+:avg_volume: :average_daily_volume
+:brut_last: :brut_last
+:brut_trade_date_utc: :brut_trade_date_utc
+:brut_trade_time_utc: :brut_trade_time_utc
+:change: :change
+:chart_url: :chart_url
+:company: :name
+:currency: :currency
+:current_date_utc: :current_date_utc
+:current_time_utc: :current_time_utc
+:daylight_savings: :daylight_savings
+:delay: :delay
+:disclaimer_url: :disclaimer_url
+:divisor: :divisor
+:ecn_url: :ecn_url
+:exchange: :stock_exchange
+:exchange_closing: :stock_exchange_closing
+:exchange_timezone: :stock_exchange_timezone
+:exchange_utc_offset: :stock_exchange_utc_offset
+:high: :days_high
+:isld_last: :isld_last
+:isld_trade_date_utc: :isld_trade_date_utc
+:isld_trade_time_utc: :isld_trade_time_utc
+:last: :last_trade
+:low: :days_low
+:market_cap: :market_capitalization
+:open: :open
+:perc_change: :percent_change
+:pretty_symbol: :pretty_symbol
+:symbol: :symbol
+:symbol_lookup_url: :symbol_lookup_url
+:symbol_url: :symbol_url
+:trade_date_utc: :trade_date_utc
+:trade_time_utc: :trade_time_utc
+:trade_timestamp: :trade_timestamp
+:volume: :volume
+:y_close: :previous_close
+
+# Real Time
+:c: :change_real_time
+:cp: :percent_change_real_time
+:l: :last_trade_real_time
+:lt: :last_trade_datetime_real_time
+:ltt: :last_trade_time_real_time
+:ccol: :color_code
+# :l_cur: :?
+# :s: :?

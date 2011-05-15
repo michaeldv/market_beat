@@ -99,9 +99,9 @@ describe "MarketBeat::Yahoo" do
     google(:change_from_52_week_low).should == '+95.92'
   end
 
-  it 'change_in_percent' do
-     apple(:change_in_percent).should == '-1.75%'
-    google(:change_in_percent).should == '-1.03%'
+  it 'percent_change' do
+     apple(:percent_change).should == '-1.75%'
+    google(:percent_change).should == '-1.03%'
   end
 
   it 'change_percent_real_time' do
@@ -250,8 +250,8 @@ describe "MarketBeat::Yahoo" do
   end
 
   it 'last_trade_price_only' do
-     apple(:last_trade_price_only).should == '340.50'
-    google(:last_trade_price_only).should == '529.55'
+     apple(:last_trade).should == '340.50'
+    google(:last_trade).should == '529.55'
   end
 
   it 'last_trade_real_time_with_time' do
