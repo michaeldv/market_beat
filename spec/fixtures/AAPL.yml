@@ -180,7 +180,7 @@
 :change_from_52_week_low: |
   +109.15
 
-:name: |
+:company: |
   "Apple Inc."
 
 :notes: |
@@ -222,7 +222,7 @@
 :holdings_gain: |
   -
 
-:open: |
+:opening_price: |
   345.79
 
 :ask_real_time: |

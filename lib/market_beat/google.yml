@@ -5,7 +5,7 @@
 :brut_trade_time_utc: :brut_trade_time_utc
 :change: :change
 :chart_url: :chart_url
-:company: :name
+:company: :company
 :currency: :currency
 :current_date_utc: :current_date_utc
 :current_time_utc: :current_time_utc
@@ -25,7 +25,7 @@
 :last: :last_trade
 :low: :days_low
 :market_cap: :market_capitalization
-:open: :open
+:open: :opening_price
 :perc_change: :percent_change
 :pretty_symbol: :pretty_symbol
 :symbol: :symbol

@@ -95,12 +95,12 @@ describe "MarketBeat::Google Delayed" do
     ibm(:market_capitalization).should == '207223.55'
   end
 
-  it "name" do
-    ibm(:name).should == 'International Business Machines Corp.'
+  it "company" do
+    ibm(:company).should == 'International Business Machines Corp.'
   end
 
-  it "open" do
-    ibm(:open).should == '171.70'
+  it "opening_price" do
+    ibm(:opening_price).should == '171.70'
   end
 
   it "percent_change" do

@@ -54,9 +54,9 @@
 :m6: :percent_change_from_200_day_moving_average
 :m7: :change_from_50_day_moving_average
 :m8: :percent_change_from_50_day_moving_average
-:n: :name
+:n: :company
 :n4: :notes
-:o: :open
+:o: :opening_price
 :p: :previous_close
 :p1: :price_paid
 :p2: :percent_change

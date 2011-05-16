@@ -309,9 +309,9 @@ describe "MarketBeat::Yahoo" do
     google(:moving_average_50_day).should == '553.939'
   end
 
-  it 'name' do
-     apple(:name).should == 'Apple Inc.'
-    google(:name).should == 'Google Inc.'
+  it 'company' do
+     apple(:company).should == 'Apple Inc.'
+    google(:company).should == 'Google Inc.'
   end
 
   it 'notes' do
@@ -324,9 +324,9 @@ describe "MarketBeat::Yahoo" do
     google(:one_year_target_price).should == '701.54'
   end
 
-  it 'open' do
-     apple(:open).should == '345.79'
-    google(:open).should == '534.51'
+  it 'opening_price' do
+     apple(:opening_price).should == '345.79'
+    google(:opening_price).should == '534.51'
   end
 
   it 'order_book_real_time' do
