@@ -5,6 +5,7 @@
 #------------------------------------------------------------------------------
 require File.dirname(__FILE__) + '/market_beat/yahoo'
 require File.dirname(__FILE__) + '/market_beat/google'
+require File.dirname(__FILE__) + "/market_beat/version"
 
 module MarketBeat
   # Pre-cache available methods so we could use them within

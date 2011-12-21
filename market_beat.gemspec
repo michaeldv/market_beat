@@ -3,28 +3,26 @@
 # Market Beat is freely distributable under the terms of MIT license.
 # See LICENSE file or http://www.opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-$:.push File.expand_path("../lib", __FILE__)
 require "rake"
+require File.dirname(__FILE__) + "/lib/market_beat/version"
 
 task :default => :spec
 
 task :spec do
-  require "rspec/core/rake_task"
-  RSpec::Core::RakeTask.new(:spec) do |s|
-    s.pattern = 'spec/**/*_spec.rb'
-    s.rspec_opts = ['--color']
-  end
+  # Run plain rspec command without RSpec::Core::RakeTask overrides.
+  exec "rspec -c spec"
 end
 
 Gem::Specification.new do |s|
   s.name        = "market_beat"
-  s.version     = File.read('VERSION')
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Michael Dvorkin"]
-  s.email       = ["mike@dvorkin.net"]
+  s.version     = MarketBeat.version
+# s.platform    = Gem::Platform::RUBY
+  s.authors     = "Michael Dvorkin"
+  s.date        = Time.now.strftime("%Y-%m-%d")
+  s.email       = "mike@dvorkin.net"
   s.homepage    = "http://github.com/michaeldv/market_beat"
   s.summary     = "Fetch up-to-date stock quotes and other market data."
-  s.description = "Fetch up-to-date stock quotes and other market data."
+  s.description = "Fetch real-time and delayed stock quotes and other market data from publicly available sources."
 
   s.rubyforge_project = "market_beat"
 
