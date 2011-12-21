@@ -21,8 +21,8 @@ Gem::Specification.new do |s|
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.email       = "mike@dvorkin.net"
   s.homepage    = "http://github.com/michaeldv/market_beat"
-  s.summary     = "Fetch up-to-date stock quotes and other market data."
-  s.description = "Fetch real-time and delayed stock quotes and other market data from publicly available sources."
+  s.summary     = "Fetch up-to-date stock quotes and 100+ financial and market indicators."
+  s.description = "Fetch real-time and delayed stock quotes and 100+ other financial and market indicaors from publicly available sources."
 
   s.rubyforge_project = "market_beat"
 
