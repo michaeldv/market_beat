@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "market_beat"
 
-  s.files         = Rake::FileList["[A-Z]*", "lib/**/*.rb", "spec/*", ".gitignore"]
+  s.files         = Rake::FileList["[A-Z]*", "lib/**/*.rb", "lib/**/*.yml", "spec/*", ".gitignore"]
   s.test_files    = Rake::FileList["spec/*"]
   s.executables   = []
   s.require_paths = ["lib"]

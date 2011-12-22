@@ -1,2 +1,5 @@
+0.1.1
+  - Include YAML files when building the gem.
+
 0.1.0
   - Initial Release.
