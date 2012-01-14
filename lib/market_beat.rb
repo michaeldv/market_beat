@@ -8,6 +8,11 @@ require File.dirname(__FILE__) + '/market_beat/google'
 require File.dirname(__FILE__) + "/market_beat/version"
 
 module MarketBeat
+
+  @@proxy_address = nil
+  @@proxy_port    = nil
+  @@has_proxy     = false
+
   # Pre-cache available methods so we could use them within
   # method_missing where respond_to? gives false positives.
   if RUBY_VERSION < '1.9.0'
@@ -16,6 +21,34 @@ module MarketBeat
   else
     @@yahoo  = Yahoo.methods  - Object.methods
     @@google = Google.methods - Object.methods
+  end
+
+  # Set global proxy address
+  def self.set_proxy_address(address)
+      @@proxy_address = address
+      set_sources_proxy if @@proxy_port
+  end
+
+  # Set global proxy port
+  def self.set_proxy_port(port)
+      @@proxy_port = port
+      set_sources_proxy if @@proxy_address
+  end
+
+  # Get global proxy address
+  def self.get_proxy_address
+      @@proxy_address
+  end
+
+  # Get global proxy address
+  def self.get_proxy_port
+      @@proxy_port
+  end
+
+  # Proxy configured?
+  def self.set_sources_proxy
+    Yahoo.set_proxy(@@proxy_address, @@proxy_port) 
+    Google.set_proxy(@@proxy_address, @@proxy_port)
   end
 
   # Proxy MarketBeat methods to either Google or Yahoo providers.
@@ -28,4 +61,5 @@ module MarketBeat
       super
     end
   end
+
 end
