@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    market_beat (0.1.0)
+    market_beat (0.2.0)
 
 GEM
   remote: http://rubygems.org/
