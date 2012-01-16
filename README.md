@@ -31,6 +31,15 @@ Some methods return multiple values:
     >> MarketBeat.last_trade_with_time :IBM
     ["4:02pm", "181.47"]
 
+Fetching historical quotes returns array of hashes where each hash represents
+stock data for a given date:
+
+    >> MarketBeat.quotes(:AAPL, "2011-12-21", "2011-12-22")
+    [{:date=>#<Date: 2011-12-22 (4911835/2,0,2299161)>, :open=>"397.00",
+    :high=>"399.13", :low=>"396.10", :close=>"398.55", :volume=>"7227016"},
+    {:date=>#<Date: 2011-12-21 (4911833/2,0,2299161)>, :open=>"396.69",
+    :high=>"397.30", :low=>"392.01", :close=>"396.44", :volume=>"9390954"}]
+
 ### Available Methods (Real Time Data) ###
 
     MarketBeat.after_hours_change_real_time
@@ -133,6 +142,7 @@ Some methods return multiple values:
     MarketBeat.price_to_eps_estimate_current_year
     MarketBeat.price_to_eps_estimate_next_year
     MarketBeat.price_to_sales
+    MarketBeat.quotes
     MarketBeat.range_52_week
     MarketBeat.shares_owned
     MarketBeat.short_ratio
@@ -164,7 +174,7 @@ Some methods return multiple values:
 * Send me a pull request.
 
 ### License ###
-Copyright (c) 2011 Michael Dvorkin
+Copyright (c) 2011-12 Michael Dvorkin
 
 twitter.com/mid
 
