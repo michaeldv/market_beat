@@ -28,4 +28,9 @@ module MarketBeat
       super
     end
   end
+
+  # Make MarketBeat.respond_to? return true for all the methods above.
+  def self.respond_to_missing?(method, include_private)
+    super(method, include_private) || @@google.include?(method) || @@yahoo.include?(method)
+  end
 end

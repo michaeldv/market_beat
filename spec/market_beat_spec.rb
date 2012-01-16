@@ -9,6 +9,10 @@ require 'yaml'
 describe "MarketBeat Google Proxy" do
   metrics = YAML.load_file(File.dirname(__FILE__) + '/../lib/market_beat/google.yml')
   metrics.values.each do |method|
+    it "MarketBeat should respond to :#{method}" do
+      MarketBeat.respond_to?(method).should == true
+    end
+
     it "Google.#{method}" do
       MarketBeat::Google.should_receive(method).once
       MarketBeat::Yahoo.should_not_receive(method)
@@ -21,6 +25,10 @@ describe "MarketBeat Yahoo Proxy" do
   yahoo_metrics  = YAML.load_file(File.dirname(__FILE__) + '/../lib/market_beat/yahoo.yml')
   google_metrics = YAML.load_file(File.dirname(__FILE__) + '/../lib/market_beat/google.yml')
   yahoo_metrics.values.each do |method|
+    it "MarketBeat should respond to :#{method}" do
+      MarketBeat.respond_to?(method).should == true
+    end
+
     it "Yahoo.#{method}" do # If Yahoo and Google have the same method Google takes precedence.
       if google_metrics.values.include?(method)
         MarketBeat::Google.should_receive(method).once
