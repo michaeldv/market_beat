@@ -30,17 +30,14 @@ module MarketBeat
       @@httpl = ->(uri){return Net::HTTP.get_response(uri)}
 
       def set_proxy(address, port)
-        #probably these class variables aren't really necessaire
-        @@proxy_address = address
-        @@proxy_port    = port
         @@httpl = ->(uri){return Net::HTTP::Proxy(@@proxy_address, @@proxy_port).get_response(uri)}
       end
 
       private
       def fetch(ticker, metric)
         uri = nil
-        #If ticker symbol has a '_' then one assumes that we are looking for a currency pair.
-        if ("#{ticker}" =~ /(\w+)_(\w+)$/)
+        #If ticker symbol has a '-' then assume that we are looking for a currency pair.
+        if ("#{ticker}" =~ /(\w+)-(\w+)$/)
           uri   = URI.parse("#{URL}#{$1}#{$2}=X&f=#{metric}")
         else
           uri   = URI.parse("#{URL}#{ticker}&f=#{metric}")
@@ -52,13 +49,12 @@ module MarketBeat
           response.is_a?(Net::HTTPSuccess) ? response.body : ""
         rescue Exception => e # I'm too lazy to look it up
           if delay = retry_connect # will be nil if the list is empty
-            puts "Failed while connecting to beat source. Retrying."
+            puts "Failed while connecting to market source. Retrying."
             sleep delay
             retry # backs up to just after the "begin"
           else
             #should exit with raise or try trought infinity and keep up?
             #Keep going for now leaving a message and rebuilding @@retries
-            #raise # with no args re-raises original error
             puts "Can't Connect"
             return ""
           end

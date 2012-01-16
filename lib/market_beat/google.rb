@@ -35,12 +35,9 @@ module MarketBeat
       @@httpl = ->(uri){return Net::HTTP.get_response(uri)}
 
       def set_proxy(address, port)
-        #probably these class variables aren't really necessaire
-        @@proxy_address = address
-        @@proxy_port    = port
         @@httpl = ->(uri){return Net::HTTP::Proxy(@@proxy_address, @@proxy_port).get_response(uri)}
       end
-      
+
       private
       def fetch(ticker, real_time = false)
         uri = URI.parse("#{real_time ? REAL_TIME_URL : URL}#{ticker}")
@@ -56,7 +53,6 @@ module MarketBeat
           else
             #should exit with raise or try trought infinity and keep up?
             #Keep going for now leaving a message and rebuilding @@retries
-            #raise # with no args re-raises original error
             puts "Can't Connect"
             return ""
           end
