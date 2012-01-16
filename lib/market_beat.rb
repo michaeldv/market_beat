@@ -53,6 +53,34 @@ module MarketBeat
     Google.set_proxy(@@proxy_address, @@proxy_port)
   end
 
+  # Set global proxy address
+  def self.set_proxy_address(address)
+      @@proxy_address = address
+      set_sources_proxy if @@proxy_port
+  end
+
+  # Set global proxy port
+  def self.set_proxy_port(port)
+      @@proxy_port = port
+      set_sources_proxy if @@proxy_address
+  end
+
+  # Get global proxy address
+  def self.get_proxy_address
+      @@proxy_address
+  end
+
+  # Get global proxy address
+  def self.get_proxy_port
+      @@proxy_port
+  end
+
+  # Proxy configured?
+  def self.set_sources_proxy
+    Yahoo.set_proxy(@@proxy_address, @@proxy_port) 
+    Google.set_proxy(@@proxy_address, @@proxy_port)
+  end
+
   # Proxy MarketBeat methods to either Google or Yahoo providers.
   def self.method_missing(method, *args, &blk)
     if @@methods[:google].include?(method)
