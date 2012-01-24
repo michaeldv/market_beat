@@ -35,7 +35,7 @@ module MarketBeat
       @@httpl = ->(uri){return Net::HTTP.get_response(uri)}
 
       def set_proxy(address, port)
-        @@httpl = ->(uri){return Net::HTTP::Proxy(@@proxy_address, @@proxy_port).get_response(uri)}
+        @@httpl = ->(uri){return Net::HTTP::Proxy(address, port).get_response(uri)}
       end
 
       private
