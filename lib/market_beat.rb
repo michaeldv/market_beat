@@ -6,17 +6,17 @@
 require File.dirname(__FILE__) + '/market_beat/yahoo'
 require File.dirname(__FILE__) + '/market_beat/google'
 require File.dirname(__FILE__) + '/market_beat/historical'
+require File.dirname(__FILE__) + '/market_beat/currency'
 require File.dirname(__FILE__) + "/market_beat/version"
 
 module MarketBeat
 
   @@proxy_address = nil
   @@proxy_port    = nil
-  @@has_proxy     = false
 
   # Pre-cache available methods so we could use them within
   # method_missing where respond_to? gives false positives.
-  @@methods = { :historical => [ :quotes ] }
+  @@methods = { :historical => [ :quotes ], :currency => [ :convert_currency ] }
   if RUBY_VERSION < '1.9.0'
     @@methods[:yahoo]  = (Yahoo.methods  - Object.methods).map { |m| m.to_sym }
     @@methods[:google] = (Google.methods - Object.methods).map { |m| m.to_sym }
@@ -51,6 +51,7 @@ module MarketBeat
   def self.set_sources_proxy
     Yahoo.set_proxy(@@proxy_address, @@proxy_port) 
     Google.set_proxy(@@proxy_address, @@proxy_port)
+    Currency.set_proxy(@@proxy_address, @@proxy_port)
   end
 
   # Set global proxy address
@@ -79,6 +80,7 @@ module MarketBeat
   def self.set_sources_proxy
     Yahoo.set_proxy(@@proxy_address, @@proxy_port) 
     Google.set_proxy(@@proxy_address, @@proxy_port)
+    Currency.set_proxy(@@proxy_address, @@proxy_port)
   end
 
   # Proxy MarketBeat methods to either Google or Yahoo providers.
@@ -89,6 +91,8 @@ module MarketBeat
       Yahoo.send(method, *args)
     elsif @@methods[:historical].include?(method)
       Historical.send(method, *args)
+    elsif @@methods[:currency].include?(method)
+      Currency.send(method, *args)
     else
       super
     end
